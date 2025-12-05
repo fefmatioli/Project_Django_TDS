@@ -1,4 +1,5 @@
 from django.urls import path
+from django.contrib.auth import views as auth_views
 from . import views_site
 
 urlpatterns = [
@@ -14,4 +15,7 @@ urlpatterns = [
     path("event/<int:event_id>/", views_site.event_detail, name="event_detail"),
     path("event/<int:event_id>/edit/", views_site.event_edit, name="event_edit"),
     path("note/<int:note_id>/edit/", views_site.note_edit, name="note_edit"),
+    path("login/", auth_views.LoginView.as_view(template_name="login.html"), name="login"),
+    path("logout/", auth_views.LogoutView.as_view(), name="logout"),
+    path("signup/", views_site.signup, name="signup"),
 ]
