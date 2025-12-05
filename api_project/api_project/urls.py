@@ -16,7 +16,7 @@ router.register(r'tasks', TaskViewSet, basename='task')
 
 urlpatterns = [
     path('', RedirectView.as_view(url='/dashboard/', permanent=False)), 
-    path('dashboard/', include('core.urls_site')), #hmtl
+    path('dashboard/', include('core.urls')), #hmtl
     path('admin/', admin.site.urls), 
     path('api/', include(router.urls)), #API
     path('api-auth/', include('rest_framework.urls')),
