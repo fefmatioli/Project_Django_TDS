@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Event | The ADHD DailyGenda</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <header class="header">
+    <h1>Edit Event</h1>
+    <a href="{% url 'event_detail' event.id %}" class="back-btn">← Back to Event</a>
+  </header>
+
+  <main class="note-detail-container">
+    <div class="note-card-full">
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="submit-btn">Save changes</button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

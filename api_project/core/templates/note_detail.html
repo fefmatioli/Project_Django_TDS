@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ note.title }} | The ADHD DailyGenda</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <header class="header">
+    <h1>{{ note.title }}</h1>
+    <div class="nav-buttons">
+        <a href="{% url 'dashboard' %}" class="back-btn">← Back to Dashboard</a>
+        <a href="{% url 'note_edit' note.id %}" class="edit-btn">✏️ Edit</a>
+    </div>
+</header>
+
+  </header>
+
+  <main class="note-detail-container">
+    <div class="note-card-full">
+      <p><strong>Category:</strong> {{ note.get_category_display }}</p>
+      {% if note.date %}
+        <p><strong>Date:</strong> {{ note.date|date:"d/m/Y" }}</p>
+      {% endif %}
+      <hr>
+      <p>{{ note.content|linebreaksbr }}</p>
+    </div>
+  </main>
+</body>
+</html>
