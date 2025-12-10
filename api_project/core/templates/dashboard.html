@@ -15,7 +15,7 @@
   <header class="header">
     <h1>The ADHD DailyGenda</h1>
     <div class="user-info">
-      <p>Bem-vindo(a), {{ request.user.username }}</p>
+      <p>Welcome, {{ request.user.username }}</p>
       <form action="{% url 'logout' %}" method="post" style="display:inline;">
         {% csrf_token %}
         <button type="submit" class="submit-btn">Logout</button>
